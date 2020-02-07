@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "comp-nav-index": "../components/nav_index/nav_index"
+  }
 }

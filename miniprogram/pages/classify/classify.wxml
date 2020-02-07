@@ -1,0 +1,34 @@
+<!-- 商品分类 -->
+<view class="classify">
+  <!-- 一级类别 -->
+  <view class="mainClassify">
+    <scroll-view class="scroll" scroll-y scroll-with-animation>
+      <view class="varieties {{index === 0 ? 'active' : ''}}" wx:for="{{classify}}" wx:key="{{index}}">
+        <text>{{item.varieties}}</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 细分类别 -->
+  <view class="subdivision">
+    <view class="wrapper">
+      <view class="banner">
+        <image src="https://m.360buyimg.com/babel/jfs/t1/95438/24/11415/151475/5e325a25E06fa4a6a/c11e29c6a70ce87d.png" mode="widthFix"></image>
+      </view>
+      <view class="subdivision-wrapper">
+        <view class="subdivision-item" wx:for="{{subdivision}}" wx:key="{{index}}">
+          <view class="img">
+            <image src="{{item.img}}" mode="widthFix"></image>
+          </view>
+          <view class="title">{{item.title}}</view>
+        </view>
+        <view class="subdivision-item ">
+          <view class="img">
+            <image src="/images/arrow.svg"></image>
+          </view>
+          <view class="title">全部</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,99 @@
+.column {
+  margin-top: 30rpx;
+  padding: 20rpx;
+  background: #fff;
+}
+
+.column .banner {
+  width: 100%;
+}
+
+.column .banner image {
+  width: 100%;
+}
+
+.goods-item {
+  display: flex;
+  padding: 40rpx 20rpx;
+  border-bottom: 2rpx solid #F3f3f3;
+}
+
+.goods-item:last-of-type {
+   border-bottom: none;
+}
+
+.goods-item .img {
+  width: 30%;
+}
+
+.goods-item .img image {
+  width: 100%;
+}
+
+.goods-item .info {
+  width: 70%;
+  padding: 0 20rpx;
+  color: #AAA;
+}
+
+.goods-item .info > view {
+  margin-bottom: 20rpx; 
+}
+
+.goods-item .info .goods-title {
+  font-size: 32rpx;
+  font-weight: 550;
+  color: #000;
+}
+
+.goods-item .info .goods-describe {
+  font-size: 28rpx;
+}
+
+.goods-item .info .goods-specs text {
+  background: #f6f6f6;
+  padding: 10rpx;
+  font-size: 24rpx;
+}
+
+.goods-item .info .goods-price {
+  position: relative;
+}
+
+.goods-item .info .goods-price .addShopping {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.goods-item .info .goods-price .addShopping icon {
+  vertical-align: bottom;
+}
+
+.goods-item .info .goods-price .now-price {
+  font-size: 34rpx;
+  color: #f09536;
+}
+
+.goods-item .info .goods-price .old-price {
+  font-size: 24rpx;
+  text-decoration: line-through;
+}
+
+.all {
+  padding: 10rpx 0;
+  text-align: center;
+  color: #585858;
+  font-size: 28rpx;
+}
+
+.all icon {
+  vertical-align: 10rpx;
+  margin-left: 20rpx;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

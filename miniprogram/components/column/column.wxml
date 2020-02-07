@@ -1,0 +1,30 @@
+<view class="column">
+  <view class="banner">
+    <image src="{{column.banner}}" mode="widthFix"></image>
+  </view>
+  <view class="goods-list">
+    <view class="goods-item" wx:for="{{column.goodsList}}" wx:key="{{index}}">
+      <view class="img">
+        <image src="{{item.img}}" mode="widthFix"></image>
+      </view>
+      <view class="info">
+        <view class="goods-title ellipsis">{{item.title}}</view>
+        <view class="goods-describe ellipsis">{{item.describe}}</view>
+        <view class="goods-specs">
+          <text>{{item.specs}}</text>
+        </view>
+        <view class="goods-price">
+          <text class="now-price">￥{{item.nowPrice}}</text>
+          <text class="old-price" wx:if="{{item.oldPrice}}}">￥{{item.oldPrice}}</text>
+          <view class="addShopping">
+             <icon icon="add2" type="field" color="#07c160" size="24"></icon>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="all">
+    <text>查看全部</text>
+    <icon icon="arrow" color="#585858" size="12"></icon>
+  </view>
+</view>

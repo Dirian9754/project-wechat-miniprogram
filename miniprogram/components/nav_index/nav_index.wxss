@@ -1,0 +1,146 @@
+.nav-index {
+  background: #F7F7F7;
+}
+
+.swiper-banner {
+  height: 360rpx;
+}
+
+.menu-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu-item {
+  flex: none;
+  width: 20%;
+  padding: 20rpx 30rpx 0 30rpx;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.menu-item .img {
+  width: 100%;
+}
+
+.menu-item .img image {
+  width: 100%;
+}
+
+.menu .pull-down {
+  padding: 20rpx 0;
+  text-align: center;
+}
+
+.menu .pull-down icon {
+  transform: rotateZ(90deg);
+}
+
+.recommend {
+  margin-top: 30rpx;
+}
+
+.recommend .title {
+  text-align: center;
+  color: #CE9F64;
+  border-bottom: 2rpx solid #F1F1F1;
+  padding: 20rpx;
+}
+
+.recommend .title icon {
+  transform: rotateZ(180deg);
+  vertical-align: middle;
+  margin-left: 20rpx;
+}
+
+.recommend-list {
+  display: flex;
+}
+
+.recommend-item {
+  width: 33.33%;
+  text-align: center;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.recommend-item .img {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.recommend-item .img image {
+  width: 100%;
+}
+
+.recommend-item .describe {
+  font-size: 26rpx;
+  font-weight: 550;
+}
+
+.recommend-item .price {
+  margin: 20rpx 0;
+  font-size: 20rpx;
+  color: #CE9F64;
+}
+
+.recommend-item .price text {
+  font-size: 32rpx;
+}
+
+.recommend-item .shopping-car {
+  font-size: 24rpx;
+  border-radius: 20rpx;
+}
+
+.recommend-item .shopping-car icon {
+  vertical-align: middle;
+  margin-right: 6rpx;
+}
+
+.PuPu-selected {
+  margin-top: 30rpx;
+  padding: 30rpx;
+}
+
+.PuPu-selected .title {
+  margin: 20rpx 0;
+  font-size: 36rpx;
+}
+
+.PuPu-selected .img {
+  display: flex;
+}
+
+.PuPu-selected .img > view {
+  width: 50%;
+  height: 360rpx;
+  box-sizing: border-box;
+}
+
+.PuPu-selected .img .left-box {
+  padding-right: 6rpx; 
+}
+
+.PuPu-selected .img .right-box {
+  padding-left: 6rpx;
+}
+
+.PuPu-selected .img .right-box view {
+  width: 100%;
+  height: 50%;
+}
+
+.PuPu-selected .img .right-box .top-box {
+  padding-bottom: 6rpx;
+}
+
+.PuPu-selected .img .right-box .bottom-box {
+  padding-top: 6rpx;
+}
+
+.PuPu-selected .img image {
+  width: 100%;
+  height: 100%;
+}
