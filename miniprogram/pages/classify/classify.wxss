@@ -30,7 +30,7 @@
 
 .mainClassify .varieties.active text {
   display: block;
-  border-left: 4rpx solid #2BBC42;
+  border-left: 10rpx solid #2BBC42;
 }
 
 .mainClassify .varieties.active {
@@ -103,12 +103,3 @@
   text-align: center;
 }
 
-.subdivision-wrapper .subdivision-item:last-of-type .img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.subdivision-wrapper .subdivision-item:last-of-type image {
-  max-width: 70rpx;
-}

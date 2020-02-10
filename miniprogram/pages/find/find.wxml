@@ -1,2 +1,6 @@
-<!--miniprogram/pages/find/find.wxml-->
-<text>miniprogram/pages/find/find.wxml</text>
+<!-- 发现页 -->
+<view class="find">
+  <block wx:for="{{cols}}"  wx:key="index">
+    <comp-recommen recommenData="{{item.col}}"></comp-recommen>
+  </block>
+</view>

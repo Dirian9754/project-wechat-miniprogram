@@ -3,8 +3,14 @@
   <!-- 一级类别 -->
   <view class="mainClassify">
     <scroll-view class="scroll" scroll-y scroll-with-animation>
-      <view class="varieties {{index === 0 ? 'active' : ''}}" wx:for="{{classify}}" wx:key="{{index}}">
-        <text>{{item.varieties}}</text>
+      <view 
+      class="varieties {{enabled === item._id ? 'active' : ''}}" 
+      wx:for="{{classify}}" 
+      wx:key="index"
+      data-id="{{item._id}}"
+      bindtap="chooseClassify"
+      >
+        <text>{{item.type}}</text>
       </view>
     </scroll-view>
   </view>
@@ -16,17 +22,11 @@
         <image src="https://m.360buyimg.com/babel/jfs/t1/95438/24/11415/151475/5e325a25E06fa4a6a/c11e29c6a70ce87d.png" mode="widthFix"></image>
       </view>
       <view class="subdivision-wrapper">
-        <view class="subdivision-item" wx:for="{{subdivision}}" wx:key="{{index}}">
+        <view class="subdivision-item" wx:for="{{kinds}}" wx:key="_id">
           <view class="img">
-            <image src="{{item.img}}" mode="widthFix"></image>
+            <image src="{{item.kind.img}}" mode="widthFix"></image>
           </view>
-          <view class="title">{{item.title}}</view>
-        </view>
-        <view class="subdivision-item ">
-          <view class="img">
-            <image src="/images/arrow.svg"></image>
-          </view>
-          <view class="title">全部</view>
+          <view class="title">{{item.kind.title}}</view>
         </view>
       </view>
     </view>

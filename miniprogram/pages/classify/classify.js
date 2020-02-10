@@ -1,146 +1,62 @@
-// miniprogram/pages/classify/classify.js
+const db = wx.cloud.database()
+let lock = true
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    classify: [
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-      {
-        varieties: '火锅节'
-      },
-    ],
-    subdivision: [
-      {
-        img: "https://m.360buyimg.com/babel/s345x345_jfs/t1/7704/30/11355/243368/5c2c56d7E0fc512c6/51b5a2cfa8c05634.jpg!q70.dpg",
-        title: "肉"
-      },
-      {
-        img: "https://m.360buyimg.com/babel/jfs/t1/38605/37/1819/28921/5cbe7fabEd2e84911/dcaca163016f8308.png",
-        title: "肉"
-      }
-      , {
-        img: "https://m.360buyimg.com/babel/s345x345_jfs/t1/7704/30/11355/243368/5c2c56d7E0fc512c6/51b5a2cfa8c05634.jpg!q70.dpg",
-        title: "肉"
-      },
-      {
-        img: "https://m.360buyimg.com/babel/s345x345_jfs/t1/7704/30/11355/243368/5c2c56d7E0fc512c6/51b5a2cfa8c05634.jpg!q70.dpg",
-        title: "肉"
-      },
-      {
-        img: "https://m.360buyimg.com/babel/s345x345_jfs/t1/7704/30/11355/243368/5c2c56d7E0fc512c6/51b5a2cfa8c05634.jpg!q70.dpg",
-        title: "肉"
-      },
-      {
-        img: "https://m.360buyimg.com/babel/s345x345_jfs/t1/7704/30/11355/243368/5c2c56d7E0fc512c6/51b5a2cfa8c05634.jpg!q70.dpg",
-        title: "肉"
-      },
-      {
-        img: "https://m.360buyimg.com/babel/s345x345_jfs/t1/7704/30/11355/243368/5c2c56d7E0fc512c6/51b5a2cfa8c05634.jpg!q70.dpg",
-        title: "肉"
-      }
-      ,
-      {
-        img: "https://m.360buyimg.com/babel/s345x345_jfs/t1/7704/30/11355/243368/5c2c56d7E0fc512c6/51b5a2cfa8c05634.jpg!q70.dpg",
-        title: "肉"
-      }
-      ,
-      {
-        img: "https://m.360buyimg.com/babel/s345x345_jfs/t1/7704/30/11355/243368/5c2c56d7E0fc512c6/51b5a2cfa8c05634.jpg!q70.dpg",
-        title: "肉"
-      }
-      ,
-      {
-        img: "https://m.360buyimg.com/babel/s345x345_jfs/t1/7704/30/11355/243368/5c2c56d7E0fc512c6/51b5a2cfa8c05634.jpg!q70.dpg",
-        title: "肉"
-      }
-      ,
-      {
-        img: "https://m.360buyimg.com/babel/s345x345_jfs/t1/7704/30/11355/243368/5c2c56d7E0fc512c6/51b5a2cfa8c05634.jpg!q70.dpg",
-        title: "肉"
-      }
-      ,
-      {
-        img: "https://m.360buyimg.com/babel/s345x345_jfs/t1/7704/30/11355/243368/5c2c56d7E0fc512c6/51b5a2cfa8c05634.jpg!q70.dpg",
-        title: "肉"
-      }
-      ,
-      {
-        img: "https://m.360buyimg.com/babel/s345x345_jfs/t1/7704/30/11355/243368/5c2c56d7E0fc512c6/51b5a2cfa8c05634.jpg!q70.dpg",
-        title: "肉"
-      }
-    ]
+    classify: [],
+    kinds: [],
+    enabled: ''
+  },
+
+  // 选择分类
+  chooseClassify(e) {
+    const id = e.currentTarget.dataset.id
+    if (lock) {
+      lock = false
+      db.collection('kinds').where({
+        classify_id: id
+      }).get().then(res => {
+        const classify = this.data.classify
+        this.setData({
+          kinds: res.data,
+          enabled: id
+        })
+        lock = true
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //  分类列表
+    db.collection('classify').limit(20).get({
+      success: res => {
+        const classify = res.data
+        const enabled = classify[0]._id
+        //首项列表
+        db.collection('kinds').where({
+          classify_id: enabled
+        }).get().then(res => {
+          this.setData({
+            classify,
+            kinds: res.data,
+            enabled
+          })
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**

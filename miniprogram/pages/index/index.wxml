@@ -2,9 +2,9 @@
 <view class="navbar">
   <!-- 定位 -->
   <view class="location">
-    <icon icon="location" type="field" size="18" color="#fff"></icon>
-    <text class="place">百合苑</text>
-    <icon icon="arrow" size="11" color="#fff"></icon>
+    <icon icon="location" type="field" size="24" color="#fff"></icon>
+    <text class="place">福州市</text>
+    <icon icon="arrow" size="14" color="#fff"></icon>
   </view>
 
   <!-- 搜索框 -->
@@ -19,7 +19,7 @@
   <scroll-view scroll-x>
     <view class="nav">
       <view class="nav-item {{index === 0 ? 'active' : '' }}" 
-        wx:for="{{navList}}" wx:key="{{index}}"
+        wx:for="{{navList}}" wx:key="index"
       >
         {{item}}
       </view>

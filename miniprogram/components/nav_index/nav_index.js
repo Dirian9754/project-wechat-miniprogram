@@ -1,42 +1,18 @@
-// miniprogram/components/nav_index/nav_index.js
-Page({
+const db = wx.cloud.database()
+Component({
+
+  properties: {
+    menuList: Array,
+    bannerList: Array
+  },
 
   /**
-   * 页面的初始数据
+   * 组件的初始数据
    */
   data: {
-    menuList: [
-      { img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      {img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果'},
-      { img: 'https://m.360buyimg.com/babel/s120x120_jfs/t1/49107/14/3176/6019/5d0eea59E238562fd/2576bcda7fc37edd.jpg!q70.dpg', text: '水果' }
-    ],
-    bannerList: [
-      {
-        img: 'https://m.360buyimg.com/babel/jfs/t1/99528/10/11404/185286/5e33c853E0f1b4bad/0ebc093f29fb23d2.gif'
-      },
-      {
-        img: 'https://m.360buyimg.com/babel/jfs/t1/99528/10/11404/185286/5e33c853E0f1b4bad/0ebc093f29fb23d2.gif'
-      },
-      {
-        img: 'https://m.360buyimg.com/babel/jfs/t1/99528/10/11404/185286/5e33c853E0f1b4bad/0ebc093f29fb23d2.gif'
-      }, {
-        img: 'https://m.360buyimg.com/babel/jfs/t1/99528/10/11404/185286/5e33c853E0f1b4bad/0ebc093f29fb23d2.gif'
-      }
-    ],
+    allMenu: [],
+    menuList: [],
+    bannerList: [],
     recommendList: [
       {
         img: 'https://m.360buyimg.com/babel/s180x180_jfs/t1/6470/27/3945/118495/5bdac42aE04b61c95/5c6e65a37691c602.jpg!q70.dpg',
@@ -44,14 +20,14 @@ Page({
         price: 19.9
       },
       {
-        img: 'https://m.360buyimg.com/babel/s180x180_jfs/t1/6470/27/3945/118495/5bdac42aE04b61c95/5c6e65a37691c602.jpg!q70.dpg',
-        describe: '阿燕姐樱桃阿燕姐樱桃',
-        price: 19.9
+        img: 'https://m.360buyimg.com/babel/s345x345_jfs/t1/90606/9/4046/637730/5de484dbE424ae3d1/c576ce7e7e2835cd.jpg!q70.dpg',
+        describe: '元盛 黑椒调理牛排套餐750g/套(5片) 牛肉 生鲜礼盒',
+        price: 64
       },
       {
-        img: 'https://m.360buyimg.com/babel/s180x180_jfs/t1/6470/27/3945/118495/5bdac42aE04b61c95/5c6e65a37691c602.jpg!q70.dpg',
-        describe: '阿燕姐樱桃阿燕姐樱桃',
-        price: 19.9
+        img: 'https://m.360buyimg.com/babel/s345x345_jfs/t1/80292/10/7963/447267/5d5ded40E865d5cca/68dc54cb445cb940.jpg!q70.dpg',
+        describe: '贝贝南瓜  2.5kg 栗香小南瓜 年货礼盒 板栗小南瓜 新鲜蔬菜',
+        price: 42.9
       }, 
       {
         img: 'https://m.360buyimg.com/babel/s180x180_jfs/t1/6470/27/3945/118495/5bdac42aE04b61c95/5c6e65a37691c602.jpg!q70.dpg',
@@ -59,100 +35,82 @@ Page({
         price: 19.9
       },
       {
-        img: 'https://m.360buyimg.com/babel/s180x180_jfs/t1/6470/27/3945/118495/5bdac42aE04b61c95/5c6e65a37691c602.jpg!q70.dpg',
-        describe: '阿燕姐樱桃阿燕姐樱桃',
-        price: 19.9
+        img: 'https://m.360buyimg.com/babel/s345x345_jfs/t1/90606/9/4046/637730/5de484dbE424ae3d1/c576ce7e7e2835cd.jpg!q70.dpg',
+        describe: '元盛 黑椒调理牛排套餐750g/套(5片) 牛肉 生鲜礼盒',
+        price: 64
       },
       {
-        img: 'https://m.360buyimg.com/babel/s180x180_jfs/t1/6470/27/3945/118495/5bdac42aE04b61c95/5c6e65a37691c602.jpg!q70.dpg',
-        describe: '阿燕姐樱桃阿燕姐樱桃',
-        price: 19.9
-      }
+        img: 'https://m.360buyimg.com/babel/s345x345_jfs/t1/80292/10/7963/447267/5d5ded40E865d5cca/68dc54cb445cb940.jpg!q70.dpg',
+        describe: '贝贝南瓜  2.5kg 栗香小南瓜 年货礼盒 板栗小南瓜 新鲜蔬菜',
+        price: 42.9
+      }, 
     ],
     columnData: {
-      banner: "https://m.360buyimg.com/babel/s1065x300_jfs/t1/98526/15/9079/120000/5e0b2505E17f22171/d3323061fb9a4fc9.jpg!q70.dpg",
+      banner: "https://m.360buyimg.com/babel/s1125x450_jfs/t1/85736/40/9481/195288/5e0df686Ee770948e/a7ff883aaa554802.jpg!q70.dpg",
       goodsList: [
         {
-          img: "https://m.360buyimg.com/babel/jfs/t1/106814/22/8566/164162/5e05e2b9E1b17ca2d/dc9941e7ed3ef1e0.png",
-          title: "欧德邵 丹东99红颜奶油草莓水果 3斤礼盒装 顺丰空运 ",
+          img: "https://m.360buyimg.com/babel/jfs/t1/87973/24/9367/165788/5e0df4b0E19394d0a/b74b30f87bddf505.jpg!q70.dpg",
+          title: "迪士尼米奇系列 阳光橙",
           describe: "新鲜水果现摘 精选大果",
-          specs: "190g/份",
-          nowPrice: "9.9",
-          oldPrice: "19.9"
+          specs: "5kg/份",
+          nowPrice: "139",
+          oldPrice: "89"
         },
         {
-          img: "https://m.360buyimg.com/babel/jfs/t1/106814/22/8566/164162/5e05e2b9E1b17ca2d/dc9941e7ed3ef1e0.png",
-          title: "欧德邵 丹东99红颜奶油草莓水果 3斤礼盒装 顺丰空运 ",
+          img: "https://m.360buyimg.com/babel/jfs/t1/110595/19/3133/155690/5e0df481Edbf38b21/12bc6d1d893b87de.jpg!q70.dpg",
+          title: "迪士尼米奇系列 阳光苹果 ",
           describe: "新鲜水果现摘 精选大果",
-          specs: "190g/份",
-          nowPrice: "9.9",
-          oldPrice: "19.9"
+          specs: "15个/份",
+          nowPrice: "89.9",
+          oldPrice: "69.9"
         },
         {
-          img: "https://m.360buyimg.com/babel/jfs/t1/106814/22/8566/164162/5e05e2b9E1b17ca2d/dc9941e7ed3ef1e0.png",
-          title: "欧德邵 丹东99红颜奶油草莓水果 3斤礼盒装 顺丰空运 ",
+          img: "https://m.360buyimg.com/babel/jfs/t1/102619/13/9208/153029/5e0df493E9e8437de/44037dd510b43731.jpg!q70.dpg",
+          title: "欧迪士尼米奇系列 阿克苏苹果 ",
           describe: "新鲜水果现摘 精选大果",
-          specs: "190g/份",
-          nowPrice: "9.9",
-          oldPrice: "19.9"
+          specs: "15个/份",
+          nowPrice: "99.9",
+          oldPrice: "79.9"
         }
       ]
     }
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  methods: {
+    // 添加菜单
+    addMenu: function() {
+      if (this.data.menuList.length === 10) {
+        this.setData({
+          menuList: this.data.allMenu
+        })
+      } else {
+        this.setData({
+          menuList: [...this.data.allMenu].splice(0, 10)
+        })
+      }
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  lifetimes: {
+    attached: function () {
+      
+      // 在组件实例进入页面节点树时执行
+      // 初始化菜单
+      db.collection('menu').get().then(res => {
+        this.setData({
+          allMenu: [...res.data],
+          menuList: res.data.splice(0, 10)
+        })
+      })
+      // 轮播图
+      db.collection('banners').get().then(res => {
+        this.setData({
+          bannerList: res.data
+        })
+      })
+    },
+    detached: function () {
+      // 在组件实例被从页面节点树移除时执行
+    }
   }
 })

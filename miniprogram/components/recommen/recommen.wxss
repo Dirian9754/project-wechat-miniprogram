@@ -1,0 +1,46 @@
+.recommen {
+  margin-bottom: 30rpx;
+  padding: 20rpx;
+  background: #fff;
+}
+
+.banner {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.banner image {
+  width: 100%;
+}
+
+.goods {
+  display: flex;
+}
+
+.goods-item {
+  flex: none;
+  width: 25%;
+  text-align: center;
+}
+
+.goods-item .img {
+  padding: 20rpx;
+}
+
+.goods-item .img image {
+  width: 100%;
+}
+
+.goods-item .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 28rpx;
+  font-weight: 550;
+}
+
+.goods-item .price {
+  font-size: 24rpx;
+  color: #f60;
+}

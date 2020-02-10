@@ -1,2 +1,79 @@
-<!--miniprogram/pages/personal/personal.wxml-->
-<text>miniprogram/pages/personal/personal.wxml</text>
+<!-- 个人中心 -->
+<view class="personal">
+  <!-- 登录框 -->
+  <view class="personal-wrapper">
+    <!-- 头像、登录 -->
+    <view class="loginBar">
+      <view class="personal-img">
+        <image src="/images/personal.svg"></image>
+      </view>
+      <view class="btn">登录/注册</view>
+    </view>
+
+    <!-- 订单 -->
+    <view class="orderBar">
+      <view class="order-item">
+        <view class="img">
+          <image mode="widthFix" src="/images/daifukuan.svg"></image>
+        </view>
+        <text>待付款</text>
+      </view>
+      <view class="order-item">
+        <view class="img">
+          <image mode="widthFix" src="/images/nogoods.svg"></image>
+        </view>
+        <text>待收货</text>
+      </view>
+      <view class="order-item">
+        <view class="img">
+          <image mode="widthFix" src="/images/daipingjia.svg"></image>
+        </view>
+        <text>待评价</text>
+      </view>
+      <view class="order-item">
+        <view class="img">
+          <image mode="widthFix" src="/images/quanbudingdan.svg"></image>
+        </view>
+        <text>全部订单</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 收货地址、优惠劵、我的关注 -->
+  <view class="my">
+    <view class="address">
+      <image mode="widthFix" src="/images/address.svg"></image>
+      <text>我的住址</text>
+      <image class="arrow" mode="widthFix" src="/images/arrow2.svg"></image>
+    </view>
+    <view class="youhuijuan">
+      <image mode="widthFix" src="/images/youhuijuan.svg"></image>
+      <text>优惠劵</text>
+      <image class="arrow" mode="widthFix" src="/images/arrow2.svg"></image>
+    </view>
+    <view class="my-love">
+      <image mode="widthFix" src="/images/xin.svg"></image>
+      <text>我的关注</text>
+      <image class="arrow" mode="widthFix" src="/images/arrow2.svg"></image>
+    </view>
+  </view>
+
+  <!-- 客服 -->
+  <view class="help my">
+      <view class="time">
+      <image mode="widthFix" src="/images/time.svg"></image>
+      <text>配送时间</text>
+      <image class="arrow" mode="widthFix" src="/images/arrow2.svg"></image>
+    </view>
+    <view class="kefu">
+      <image mode="widthFix" src="/images/kefu.svg"></image>
+      <text>在线客服</text>
+      <image class="arrow" mode="widthFix" src="/images/arrow2.svg"></image>
+    </view>
+    <view class="helper">
+      <image mode="widthFix" src="/images/jingao.svg"></image>
+      <text>帮助与反馈</text>
+      <image class="arrow" mode="widthFix" src="/images/arrow2.svg"></image>
+    </view>
+  </view>
+</view>

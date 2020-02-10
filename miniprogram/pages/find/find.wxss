@@ -1,1 +1,3 @@
-/* miniprogram/pages/find/find.wxss */
+.find {
+  background: #f6f6f6;
+}

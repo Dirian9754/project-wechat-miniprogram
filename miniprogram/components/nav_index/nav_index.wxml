@@ -1,35 +1,28 @@
 <view class="nav-index">
   <!-- 轮播图 -->
-  <swiper
-      class="swiper-banner" 
-      indicator-dots
-      indicator-color="#FFF"
-      indicator-active-color="#2BBC42"
-      autoplay
-      interval="{{2000}}"
-    >
-    <swiper-item wx:for="{{bannerList}}" wx:key="{{index}}">
+  <swiper class="swiper-banner" indicator-dots indicator-color="#FFF" indicator-active-color="#2BBC42" autoplay interval="{{2000}}">
+    <swiper-item wx:for="{{bannerList}}" wx:key="index">
       <view class="swiper">
-        <image src="{{item.img}}" ></image>
+        <image src="{{item.img}}"></image>
       </view>
     </swiper-item>
   </swiper>
 
   <!-- 菜单 -->
-  <view class="menu bg-ff">
+  <view class="menu">
     <view class="menu-list">
-        <view class="menu-item" wx:for="{{menuList}}" wx:key="{{index}}">
-          <view class="img">
-            <image src="{{item.img}}" mode="widthFix"></image>
-          </view>
-          <text>{{item.text}}</text>
+      <view class="menu-item" wx:for="{{menuList}}" wx:key="index">
+        <view class="img">
+          <image src="{{item.img}}" mode="widthFix"></image>
         </view>
+        <text class="title">{{item.title}}</text>
+      </view>
     </view>
     <view class="pull-down">
-      <icon icon="arrow" color="#aaa" size="18"></icon>
+      <icon bindtap="addMenu" icon="arrow" color="#aaa" size="18"></icon>
     </view>
   </view>
-    
+
   <!-- 掌柜推荐 -->
   <view class="recommend bg-ff">
     <view class="title">
@@ -38,18 +31,19 @@
     </view>
     <scroll-view scroll-x>
       <view class="recommend-list">
-        <view class="recommend-item" wx:for="{{recommendList}}" wx:key="{{index}}">
-           <view class="img">
-              <image src="{{item.img}}" mode="widthFix"></image>
-           </view>
-           <view class="describe ellipsis">{{item.describe}}</view>
-           <view class="price">
-              ￥<text>{{item.price}}</text>
-           </view>
-           <button class="shopping-car" size="mini" type="primary" hover-class="none">
+        <view class="recommend-item" wx:for="{{recommendList}}" wx:key="index">
+          <view class="img">
+            <image src="{{item.img}}" mode="widthFix"></image>
+          </view>
+          <view class="describe ellipsis">{{item.describe}}</view>
+          <view class="price">
+            ￥
+            <text>{{item.price}}</text>
+          </view>
+          <button class="shopping-car" size="mini" type="primary" hover-class="none">
             <icon icon="add" color="#FFf" type="field" size="14"></icon>
             <text>购物车</text>
-           </button>
+          </button>
         </view>
       </view>
     </scroll-view>
@@ -60,20 +54,20 @@
     <view class="title">朴朴优选</view>
     <view class="img">
       <view class="left-box">
-        <image src="https://m.360buyimg.com/babel/s336x369_jfs/t1/57291/30/2850/38205/5d0b66c0E43cc0a2c/de2752d72557411a.jpg!q70.dpg" ></image>
+        <image src="https://img.alicdn.com/tfs/TB1Ue9Rvhz1gK0jSZSgXXavwpXa-525-540.gif?getAvatar=1"></image>
       </view>
       <view class="right-box">
         <view class="top-box">
-          <image src="https://m.360buyimg.com/babel/s336x369_jfs/t1/57291/30/2850/38205/5d0b66c0E43cc0a2c/de2752d72557411a.jpg!q70.dpg"  ></image>
+          <image src="https://img.alicdn.com/tfs/TB1NaCIvbr1gK0jSZFDXXb9yVXa-801-282.gif"></image>
+
         </view>
         <view class="bottom-box">
-          <image src="https://m.360buyimg.com/babel/s336x369_jfs/t1/57291/30/2850/38205/5d0b66c0E43cc0a2c/de2752d72557411a.jpg!q70.dpg"  ></image>
+          <image src="https://img.alicdn.com/tfs/TB1hqsxueT2gK0jSZFvXXXnFXXa-801-282.gif"></image>
         </view>
       </view>
     </view>
   </view>
 
-  <comp-column column="{{columnData}}"></comp-column>
   <comp-column column="{{columnData}}"></comp-column>
   <comp-column column="{{columnData}}"></comp-column>
   <comp-column column="{{columnData}}"></comp-column>

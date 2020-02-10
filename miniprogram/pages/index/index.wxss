@@ -14,9 +14,9 @@
 }
 
 .location .place {
-  font-size: 30rpx;
+  font-size: 40rpx;
+  margin: 0 10rpx;
   vertical-align: -10rpx;
-  margin: 0 6rpx;
 }
 
 .search {

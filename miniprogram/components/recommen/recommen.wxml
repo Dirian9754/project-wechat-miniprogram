@@ -1,0 +1,19 @@
+<!-- 发现页推荐 -->
+<view class="recommen">
+  <!-- 横幅广告 -->
+  <view class="banner">
+    <image src="{{recommenData.banner}}" mode="widthFix"></image>
+  </view>
+  <!-- 商品轮播 -->
+  <scroll-view class="scroll" scroll-x>
+    <view class="goods">
+      <view class="goods-item" wx:for="{{recommenData.goods}}" wx:key="index">
+        <view class="img">
+          <image src="{{item.img}}" mode="widthFix"></image>
+        </view>
+        <view class="title">{{item.title}}</view>
+        <view class="price">￥{{item.price}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

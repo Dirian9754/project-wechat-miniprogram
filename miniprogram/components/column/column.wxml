@@ -3,7 +3,7 @@
     <image src="{{column.banner}}" mode="widthFix"></image>
   </view>
   <view class="goods-list">
-    <view class="goods-item" wx:for="{{column.goodsList}}" wx:key="{{index}}">
+    <view class="goods-item" wx:for="{{column.goodsList}}" wx:key="index">
       <view class="img">
         <image src="{{item.img}}" mode="widthFix"></image>
       </view>
